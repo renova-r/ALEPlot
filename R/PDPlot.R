@@ -6,7 +6,7 @@ d = dim(X)[2]  #number of predictor variables
 
 if (length(J) == 1) { #calculate main effects PD plot
 
-  if (class(X[,J]) == "numeric" | class(X[,J]) == "integer") {#for numeric or integer X[,J], calculate the ALE plot
+  if (.class1(X[,J]) == "numeric" | .class1(X[,J]) == "integer") {#for numeric or integer X[,J], calculate the ALE plot
 
     fJ = numeric(K)
     fJ = numeric(K)
@@ -27,7 +27,7 @@ if (length(J) == 1) { #calculate main effects PD plot
 
   } #end of if (class(X[,J]) == "numeric" | class(X[,J]) == "integer") statement
 
-  else if (class(X[,J]) == "factor") {#for factor X[,J], calculate the ALE plot
+  else if (.class1(X[,J]) == "factor") {#for factor X[,J], calculate the ALE plot
 
     #Get rid of any empty levels of x and tabulate level counts and probabilities
     X[,J] <- droplevels(X[,J])
@@ -55,11 +55,11 @@ if (length(J) == 1) { #calculate main effects PD plot
 
 else if (length(J) == 2) { #calculate second-order effects PD plot
 
-  if (class(X[,J[2]]) != "numeric" & class(X[,J[2]]) != "integer") {
+  if (.class1(X[,J[2]]) != "numeric" & .class1(X[,J[2]]) != "integer") {
     print("error: X[,J[2]] must be numeric or integer. Only X[,J[1]] can be a factor")
   }
 
-  if (class(X[,J[1]]) == "factor") {#for categorical X[,J[1]], calculate the PD plot
+  if (.class1(X[,J[1]]) == "factor") {#for categorical X[,J[1]], calculate the PD plot
 
   #Get rid of any empty levels of x and tabulate level counts and probabilities
     X[,J[1]] <- droplevels(X[,J[1]])
@@ -96,7 +96,7 @@ else if (length(J) == 2) { #calculate second-order effects PD plot
     axis(side=1, labels=x1.char, at=1:K1, las = 3, padj=1.2) #add level names to x-axis
   } #end of if (class(X[,J[1]]) == "factor") statement
 
-  else if (class(X[,J[1]]) == "numeric" | class(X[,J[1]]) == "integer") {#for numerical/integer X[,J[1]], calculate the PD plot
+  else if (.class1(X[,J[1]]) == "numeric" | .class1(X[,J[1]]) == "integer") {#for numerical/integer X[,J[1]], calculate the PD plot
 
     fJ = matrix(0,K,K)
     xmin1 = min(X[,J[1]])

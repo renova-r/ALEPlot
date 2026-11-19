@@ -6,7 +6,7 @@ d = dim(X)[2]  #number of predictor variables
 
 if (length(J) == 1) { #calculate main effects ALE plot
 
-  if (class(X[,J]) == "factor") {#for categorical X[,J], calculate the ALE plot
+  if (.class1(X[,J]) == "factor") {#for categorical X[,J], calculate the ALE plot
 
   #Get rid of any empty levels of x and tabulate level counts and probabilities
     X[,J] <- droplevels(X[,J])
@@ -18,7 +18,7 @@ if (length(J) == 1) { #calculate main effects ALE plot
 
     #For loop for calculating distance matrix D for each of the other predictors
     for (j in setdiff(1:d, J)) { 
-      if (class(X[,j]) == "factor") {#Calculate the distance matrix for each categorical predictor
+      if (.class1(X[,j]) == "factor") {#Calculate the distance matrix for each categorical predictor
         A=table(X[,J],X[,j])  #frequency table, rows of which will be compared
         A=A/x.count
         for (i in 1:(K-1)) {
@@ -72,7 +72,7 @@ if (length(J) == 1) { #calculate main effects ALE plot
     barplot(fJ, names=x, xlab=paste("x_", J, " (", names(X)[J], ")", sep=""), ylab= paste("f_",J,"(x_",J,")", sep=""), las =3)
   } #end of if (class(X[,J]) == "factor") statement
 
-  else if (class(X[,J]) == "numeric" | class(X[,J]) == "integer") {#for numerical or integer X[,J], calculate the ALE plot
+  else if (.class1(X[,J]) == "numeric" | .class1(X[,J]) == "integer") {#for numerical or integer X[,J], calculate the ALE plot
 
     #find the vector of z values corresponding to the quantiles of X[,J]
     z= c(min(X[,J]), as.numeric(quantile(X[,J],seq(1/K,1,length.out=K), type=1)))  #vector of K+1 z values
@@ -103,11 +103,11 @@ if (length(J) == 1) { #calculate main effects ALE plot
 
 else if (length(J) == 2) { #calculate second-order effects ALE plot
 
-  if (class(X[,J[2]]) != "numeric" & class(X[,J[2]]) != "integer") {
+  if (.class1(X[,J[2]]) != "numeric" & .class1(X[,J[2]]) != "integer") {
     print("error: X[,J[2]] must be numeric or integer. Only X[,J[1]] can be a factor")
   }
 
-  if (class(X[,J[1]]) == "factor") {#for categorical X[,J[1]], calculate the ALE plot
+  if (.class1(X[,J[1]]) == "factor") {#for categorical X[,J[1]], calculate the ALE plot
 
   #Get rid of any empty levels of x and tabulate level counts and probabilities
     X[,J[1]] <- droplevels(X[,J[1]])
@@ -119,7 +119,7 @@ else if (length(J) == 2) { #calculate second-order effects ALE plot
 
     #For loop for calculating distance matrix D for each of the other predictors
     for (j in setdiff(1:d, J[1])) { 
-      if (class(X[,j]) == "factor") {#Calculate the distance matrix for each categorical predictor
+      if (.class1(X[,j]) == "factor") {#Calculate the distance matrix for each categorical predictor
         A=table(X[,J[1]],X[,j])  #frequency table, rows of which will be compared
         A=A/x.count
         for (i in 1:(K1-1)) {
@@ -237,7 +237,7 @@ else if (length(J) == 2) { #calculate second-order effects ALE plot
 
   } #end of if (class(X[,J[1]]) == "factor") statement
 
-  else if (class(X[,J[1]]) == "numeric" | class(X[,J[1]]) == "integer") {#for numerical/integer X[,J[1]], calculate the ALE plot
+  else if (.class1(X[,J[1]]) == "numeric" | .class1(X[,J[1]]) == "integer") {#for numerical/integer X[,J[1]], calculate the ALE plot
 
   #find the vectors of z values corresponding to the quantiles of X[,J[1]] and X[,J[2]]
   z1 = c(min(X[,J[1]]), as.numeric(quantile(X[,J[1]],seq(1/K,1,length.out=K), type=1)))  #vector of K+1 z values for X[,J[1]]

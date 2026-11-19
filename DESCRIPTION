@@ -2,11 +2,13 @@ Package: ALEPlot
 Type: Package
 Title: Accumulated Local Effects (ALE) Plots and Partial Dependence
         (PD) Plots
-Version: 1.1
-Date: 2018-05-22
-Author: Dan Apley
+Version: 1.1.9001
+Authors@R: person(given = "Dan", family = "Apley", role = c("aut", "cre"),
+                  email = "apley@northwestern.edu")
+Author: Dan Apley [aut, cre]
 Maintainer: Dan Apley <apley@northwestern.edu>
 Description: Visualizes the main effects of individual predictor variables and their second-order interaction effects in black-box supervised learning models. The package creates either Accumulated Local Effects (ALE) plots and/or Partial Dependence (PD) plots, given a fitted supervised learning model.
+    Compatibility updates by Renova.
 Imports: yaImpute
 License: GPL-2
 NeedsCompilation: no

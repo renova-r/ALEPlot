@@ -2,7 +2,7 @@ Package: ALEPlot
 Type: Package
 Title: Accumulated Local Effects (ALE) Plots and Partial Dependence
         (PD) Plots
-Version: 1.1.9001
+Version: 1.1.9002
 Authors@R: person(given = "Dan", family = "Apley", role = c("aut", "cre"),
                   email = "apley@northwestern.edu")
 Author: Dan Apley [aut, cre]

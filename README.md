@@ -15,7 +15,7 @@ install.packages("ALEPlot", repos = c(
 ))
 ```
 
-Version `1.1.9001` is based on [CRAN 1.1](https://cran.r-project.org/package=ALEPlot).
+Version `1.1.9002` is based on [CRAN 1.1](https://cran.r-project.org/package=ALEPlot).
 
 ## Credit
 
